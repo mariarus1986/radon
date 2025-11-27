@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Radón en España 2025 - Zonas de Riesgo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9f9f9; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        h1 { color: #c8102e; margin-bottom: 30px; text-align: center; }
+        
+        .zones-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 40px 0; }
+        .zone-card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-top: 4px solid; }
+        .zone-card.alto { border-top-color: #d32f2f; }
+        .zone-card.medio { border-top-color: #fbc02d; }
+        .zone-card.bajo { border-top-color: #388e3c; }
+        
+        .zone-card h3 { color: #1a1a1a; margin-bottom: 10px; font-size: 1.3em; }
+        .zone-card .risk-level { font-weight: bold; margin: 10px 0; }
+        .zone-card .provinces { color: #666; font-size: 0.9em; }
+        .zone-card .action { margin-top: 15px; padding: 12px; background: #f0f0f0; border-radius: 5px; font-size: 0.95em; }
+        
+        .map-image { width: 100%; max-width: 800px; margin: 40px auto; display: block; border-radius: 8px; border: 2px solid #e0e0e0; }
+        
+        .legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 30px 0; padding: 20px; background: white; border-radius: 8px; }
+        .legend-item { display: flex; align-items: center; gap: 10px; }
+        .legend-color { width: 20px; height: 20px; border-radius: 3px; }
+        
+        .btn { padding: 12px 25px; background: #c8102e; color: white; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; font-weight: bold; }
+        .btn:hover { background: #a00824; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📍 Mapa de Radón en España 2025: ¿Es segura mi zona?</h1>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #d32f2f;"></div>
+                <span><strong>ALTO:</strong> >300 Bq/m³ (Acción obligatoria)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #fbc02d;"></div>
+                <span><strong>MEDIO:</strong> 100-300 Bq/m³ (Recomendado)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #388e3c;"></div>
+                <span><strong>BAJO:</strong> <100 Bq/m³ (Seguro)</span>
+            </div>
+        </div>
+
+        <img src="[URL-MAPA-ESPAÑA-RADON]" alt="Mapa de Radón España" class="map-image">
+
+        <h2 style="margin-top: 50px; color: #c8102e;">Zonas por Comunidad Autónoma</h2>
+        
+        <div class="zones-grid">
+            <!-- ALTO RIESGO -->
+            <div class="zone-card alto">
+                <h3>🔴 GALICIA (Riesgo Muy Alto)</h3>
+                <div class="risk-level">Nivel: 300-600 Bq/m³</div>
+                <div class="provinces"><strong>Provincias:</strong> Lugo, Pontevedra, A Coruña</div>
+                <div class="action"><strong>Acción:</strong> Medición OBLIGATORIA. Mitigation urgente recomendada en viviendas.</div>
+                <button class="btn" onclick="alert('Detectores recomendados: Airthings Pro, Radonova')">Ver Soluciones →</button>
+            </div>
+
+            <div class="zone-card alto">
+                <h3>🔴 MADRID - SIERRA (Riesgo Alto)</h3>
+                <div class="risk-level">Nivel: 250-400 Bq/m³</div>
+                <div class="provinces"><strong>Zonas:</strong> Sierra de Madrid (Manzanares el Real, Rascafría)</div>
+                <div class="action"><strong>Acción:</strong> Prioridad en medición empresas. Zonas de alta densidad de radon.</div>
+                <button class="btn" onclick="alert('Especialistas locales disponibles')">Solicitar Presupuesto →</button>
+            </div>
+
+            <div class="zone-card alto">
+                <h3>🔴 EXTREMADURA (Riesgo Alto)</h3>
+                <div class="risk-level">Nivel: 200-500 Bq/m³</div>
+                <div class="provinces"><strong>Provincias:</strong> Cáceres, Badajoz</div>
+                <div class="action"><strong>Acción:</strong> Medición sistemática. Muchas viviendas superan 300 Bq/m³.</div>
+                <button class="btn">Solicitar Presupuesto →</button>
+            </div>
+
+            <!-- MEDIO RIESGO -->
+            <div class="zone-card medio">
+                <h3>🟡 CASTILLA Y LEÓN (Riesgo Medio-Alto)</h3>
+                <div class="risk-level">Nivel: 100-200 Bq/m³</div>
+                <div class="provinces"><strong>Provincias:</strong> Salamanca, Ávila, Segovia</div>
+                <div class="action"><strong>Acción:</strong> Medición recomendada en empresas. Control rutinario.</div>
+                <button class="btn">Solicitar Presupuesto →</button>
+            </div>
+
+            <div class="zone-card medio">
+                <h3>🟡 ASTURIAS (Riesgo Medio)</h3>
+                <div class="risk-level">Nivel: 80-150 Bq/m³</div>
+                <div class="provinces"><strong>Provincias:</strong> Zona minera principalmente</div>
+                <div class="action"><strong>Acción:</strong> Vigilancia periódica. No obligatorio pero recomendado.</div>
+                <button class="btn">Comprar Detector →</button>
+            </div>
+
+            <!-- BAJO RIESGO -->
+            <div class="zone-card bajo">
+                <h3>🟢 MADRID CAPITAL (Riesgo Bajo)</h3>
+                <div class="risk-level">Nivel: 40-80 Bq/m³</div>
+                <div class="provinces"><strong>Nivel:</strong> Dentro de la capital, especialmente pisos altos</div>
+                <div class="action"><strong>Acción:</strong> Medición NO obligatoria. Control voluntario recomendado.</div>
+                <button class="btn">Info General →</button>
+            </div>
+
+            <div class="zone-card bajo">
+                <h3>🟢 BARCELONA (Riesgo Bajo)</h3>
+                <div class="risk-level">Nivel: 30-60 Bq/m³</div>
+                <div class="provinces"><strong>Zona:</strong> Principalmente zona urbana plana</div>
+                <div class="action"><strong>Acción:</strong> Bajo riesgo. Monitoreo anual recomendado.</div>
+                <button class="btn">Info General →</button>
+            </div>
+
+            <div class="zone-card bajo">
+                <h3>🟢 ANDALUCÍA COSTERA (Riesgo Bajo)</h3>
+                <div class="risk-level">Nivel: 20-50 Bq/m³</div>
+                <div class="provinces"><strong>Provincias:</strong> Málaga, Cádiz, Granada</div>
+                <div class="action"><strong>Acción:</strong> Riesgo muy reducido. Vigilancia mínima.</div>
+                <button class="btn">Info General →</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
